@@ -103,7 +103,7 @@ client.on("message", message => {
   break;
 
   case "fight":
-  message.channel.send("Do +fight (character). Characters include: Whiplash (the speedy one), Jager (the strong one), and Medic.")
+  message.channel.send("Do +fight (character) @opponent. Characters include: Whiplash (the speedy one), Jager (the strong one), and Medic.")
   break;
 }
 });
