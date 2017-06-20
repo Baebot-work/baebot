@@ -21,7 +21,7 @@ client.on("message", message => {
       message.channel.send("Pong! -- The bot is alive");
       break;
     case "help":
-      message.channel.send("__COMMANDS__\n**ping** - pong!\n**help** - shows this \n**join** - Join game time! \n**leave** - Leave game time! \n**stories** - Tells stories from different coders of this bot. \n\n__OWNER COMMANDS__ \n**add** - Add a user to game time. \n**remove** - Remove a user from game time. \n**kick** - Kick a user. \n**debug** - Debug the bot.\n\n**If you find any bugs, report them!**");
+      message.channel.send("__COMMANDS__\n**ping** - pong!\n**help** - shows this \n**join** - Join game time! \n**leave** - Leave game time! \n**stories** - Tells stories from different coders of this bot. \n**info fight** - Info on fights. \n\n__OWNER COMMANDS__ \n**add** - Add a user to game time. \n**remove** - Remove a user from game time. \n**kick** - Kick a user. \n**debug** - Debug the bot.\n\n**If you find any bugs, report them!**");
       break;
     case "gametime":
       if (message.author.id !== ownerID) {
@@ -94,7 +94,7 @@ client.on("message", message => {
           message.channel.send("Nothing yet.");
     return;
   case 2:
-        message.channel.send("Bit bork.");
+        message.channel.send("<@!154066620124364800> bork.");
     return; //always do this at the end
   case 3:
           message.channel.send("Hoi");
@@ -102,8 +102,33 @@ client.on("message", message => {
   }
   break;
 
+  case "info fight":
+  message.channel.send("Do +fight @opponent (character). Characters include: Whiplash (the speedy one), Jager (the strong one), and Medic.");
+  break;
+
   case "fight":
-  message.channel.send("Do +fight @opponent (character). Characters include: Whiplash (the speedy one), Jager (the strong one), and Medic.")
+  var memberr = message.guild.member(message.mentions.users.first());
+  message.channel.send(memberr+", "+message.author+" wants to fight you. Do you accept? Say `n` or `no` if you don't. Otherwise, say `y` or `yes`");
+  var ment = message.mentions.users.first();
+  if (message.author !== memberr || message.author.id === client.user.id)  {
+    message.channel.send("O")
+    return;
+  } else {
+    if (message.author === memberr) {
+    if (message.content.startsWith("y"));
+    message.channel.send("Challenge started!");
+    break;
+  } else {
+    if (message.author === memberr) {
+    if (message.content.startsWith("n"));
+    message.channel.send("Battle denied!");
+    break;
+  } else {
+    message.channel.send("Not what I was looking for, "+memberr);
+    break;
+  }
+  }
+  }
   break;
 }
 });
