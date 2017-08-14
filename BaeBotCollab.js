@@ -2,12 +2,9 @@ const discord = require("discord.js");
 const client = new discord.Client();
 const config = require("./config.json");
 
-var prefix = "\"";
-var token = config.token;
-
 client.on("ready", () => {
   console.log("BAEBot ready! Serving "+client.users.size+"users in "+client.guilds.size+" servers!");
-  client.user.setGame(`Say ${prefix}help for help! (What's new: Sudden Death! Do ${prefix}suddendeath!)`);
+  client.user.setGame(`Say ${config.prefix}help for help! (What's new: Sudden Death! Do ${config.prefix}suddendeath!)`);
 });
 
 client.on("message", message => {
@@ -18,7 +15,7 @@ client.on("message", message => {
   let mentions = message.mentions;
   let content = message.content;
 
-  if (author.bot || author.id === client.user.id || content[0] !== prefix || channel.type === "dm") return;
+  if (author.bot || author.id === client.user.id || content[0] !== config.prefix || channel.type === "dm") return;
 
   let command = content.substring(1).split(" ")[0];
   let params = content.substring(4).split(" ").slice(1);
@@ -196,4 +193,4 @@ client.on("guildMemberRemove", (member) => {
   member.guild.defaultChannel.send(`Bye, "${member.user.username}"!`);
 });
 
-client.login(token);
+client.login(config.token);
