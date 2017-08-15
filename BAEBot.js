@@ -3,7 +3,7 @@ const client = new discord.Client();
 const config = require("./config.json");
 
 client.on("ready", () => {
-  console.log("BAEBot ready! Serving "+client.users.size+"users in "+client.guilds.size+" servers!");
+  console.log("BAEBot ready! Serving "+client.users.size+" users in "+client.guilds.size+" servers!");
   client.user.setGame(`Say ${config.prefix}help for help! (What's new: Sudden Death! Do ${config.prefix}suddendeath!)`);
 });
 
@@ -16,7 +16,7 @@ client.on("message", message => {
   
     try {
       let commandFile = require(`./commands/${command}.js`);
-      commandFile.run(client, message, args);
+      commandFile.run(client, message, args, config);
     } catch (err) {
       console.error(err);
     }
