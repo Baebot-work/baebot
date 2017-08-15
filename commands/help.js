@@ -23,5 +23,5 @@ exports.run = (client, message, args) => {
     "**debug** - Debug the bot. \n" +
     "**gametime** - Game time! \n" +
     "**pin** - Pin the next message of yours!" +
-    "\n\n**If you find any bugs, report them.").catch(console.error)
+    "\n\n**If you find any bugs, report them.**").catch(console.error)
 }
