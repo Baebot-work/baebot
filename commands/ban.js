@@ -1,5 +1,5 @@
-exports.run = (client, message, [mention, ...reason]) => {
-    const config = require("./config.json")
+exports.run = (client, message, [mention, ...reason], config) => {
+    //const config = require("./config.json")
     if(!message.author.id === (config.owner))
         return message.channel.send(":x: You don't have permission to run that command!")
 

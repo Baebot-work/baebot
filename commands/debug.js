@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, config) => {
     if (author.id !== config.owner) {
         return message.channel.send(":x: You don't have permission to run that command!\nRequired permission: `Bot Owner`");
     }
